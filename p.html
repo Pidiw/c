@@ -1,0 +1,90 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+  }
+
+  pre {
+    font-size: .01em;
+  }
+</style>
+
+<body>
+
+  <!-- <button onclick="typeWriter()" class="">Klik saya</button> -->
+<h1>Tebak gambar apaa</h1>
+  <pre id="typeWriter"></pre>
+
+  <script>
+    var i = 0;
+    var txt = `
+##BGP5YYYYYG#&&&&##BBBG5J?777777?JJYY555YYYYJJYY5PP55YYJYPGB###&&&&&&&&&&&&#BG5555G#GB&&&&&BGGGPP5PP
+BP5YJJJJJJ5#&&&&##BGPY?!~~~~~~~~~~~~!!777777!!!!!!!!!~~~~!?YPBB#&&&&&&&@@&&&##BGPPBG5B#&&##GYYYYYYY5
+P5YJJJJJJ5B&&&&##BG5J!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~~!!7?J?YPB#&&&@@&#B#&&&&##BYYG#&&##GYYYYY555
+P5YYYJJJ5B######BGY?!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!77777!7JYPGB####BGGGB###PJJG#&&##B5YYYYY55
+5YJ???77777777777!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!777!!!77?YPBBBBBP5YYYY5PY?JB#&&##B5YYYY555
+YJ?777!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~!~~~~~~~~~~~~~~~~!777!!~~!!7J5GGGP5YYJJJY5J?P###BPP5YYYY5555
+J??77777!!!!!!!!!!!!~~~~~~~~~!!!!~!!!!7?7!~~~~~~~~~~~~~~!!7777!!~~~!!!77777777??JJ?YGGP5YJJJYYYY5555
+JJ??777777!!!!!!!!!!!!!!!!!!!7???JY55P5Y?!!!!~~~~~~~~~~!7!!777!!~~~~~~~~~!!!777?JJ?JJJ?JJJJYY5555555
+YYYJJJJ??????JJJYJJ?JJJYYY55PGGBBBBGPYJ77!!~~~~~~~^^^~~!!!!7777!~~~~~~~~!!!!77??J????????JJYYYYY5555
+BGGGGBBBBBP55PB###############BBGPYJ7!!77!~~~~~~~~^^^^~~~~!7??7!!~~~~~~~~!!!77?JJJJ?????JYYYYYY55555
+B##&&&@@@&BBB#&&&&&&&######BBGP5YJ7!~~~7?7!~~~~~!!~~~~~~!!!7777!!!~~!!!!!!!77?JJ5YJ???JJY55P55YY5555
+P#&&&&&&&##&&&&&&&&&#######BGPYJ?7!!~~~!?5555YJJ?77!!!!77777777!!!!!!!!!!!7??J5PJ????JYYY55PP5YYY55P
+PG#&&&&@&BB&&&&&&&&&######BGPJ7!!!!!!!!~!?YPGB##BP5YYY5PPYJ???7!!!!!!!!777?JYPPJ77?JJYYY55555Y55555P
+&&&@@&&&&&&&&&&&&&&###BP555Y!!!7777!!!!!!~~~!7?YPB#####&&#BBGJ77777777??JJ5PBGJ???JJYYYYY55555555PPP
+@@@@@@&&&&&&&&&&&&&#G5J?7?7^7J??77!!!!!!!7!~~!!!!7JY5PPPGBBBPJJJJ?JJJJY5PGBB5???JJYYYYY5PPP55Y555PPP
+@@@@@@@@&&&&&&&&&&&B5JJ??7^~JJ?7!!!~~~!!!!?J?77!!!!!7777?JYPPP555555PGGB###5JJJJYYYYYYYY5PPP55555PPP
+@@@@@@@@@&&&&&&&&#&#G5Y??7~~?J?7!!!!~~~~!!?PPPPPPP5555555PG#B5JJY5PGB##&&#GYJJJJJYYYYYYYY55555555PPP
+@@@FIDI@@@&&@&B5?77??JJ??77~~~~^^~~~~!!!77JYY55PPPPGB##&&#PJ?777J5G##&&&#GJJJYJJYYYYYYYYY5555555555P
+@@@@@@&&&&@&P7!!7???7!~7!^^::..^^^^^^7!~!?YJJJJJJJY5PPP5Y?777?YPG##&&&&#PJ?JYYYYYYYYYYYY5555555PPPPP
+@@@@&&&&&@&Y~!??????JJ!^::....!7!!7?J?????Y7!?JY5PGGPY????JY5G#&&&&###G5YYY5555YYYYY55Y5555555PPPPGG
+&@@@@&&&##5~!77!!!!!7!^:::.. .JJJJJYYYYYYYY!~!?JP5YJ77?JY5G#&&&&&&&#BP5PPPPPPP55YYYY5555555PP5PPPGGG
+&#####BPYJ?!!!!~~~~!!~^~~!7?7^^J55YYYYYY557!77?Y5?!77J5G#&&&&&##BGP5PGGBGGGPPP555555555555PPP55PPPPP
+&##BBBGYJJJ7!!!~~~~~!~^7~7?JY5?^!J5P5YY55?77?JY5PJ?J5B##G5G#GY???777?YGB#BGGPGPP5555555555555PGGGGGP
+&&&&&&#GPYYJ7!!!~~~!7!~?JJJYYY5J::^7YPPY7?JJYY5P55G##GY?77JP5?77777777??5&&&&&&&#GP555YY55555PGGGGGP
+&&&&&&##BP5YYJ?7!!!!?!!?JYYYYYYP?^^~!7J7?JJJY5PB#&#GJ7!!7?????7777777777?G&@@@@@@&G555YYYY555PPPPPPP
+&&&#BGP5YYYYY5YYJJJJJ~7JYYYYY55PP?7!!?Y?J57J5G##B5?7!!!!7?????777???77??7Y#@@@@@@@&&BGGPP5555PPPPPPP
+&&BG5YJJJJJJYJJYYYYJJJJYY5555YYJJJJJYYYYB5J555Y?7!7!777777?YJ77777777????JB@@@@@@@@@@@@@@&BG555PPPPP
+#BG5YYYJJJJJJJJJJJJJJ?777?????JJJJY5PPYJYYYJ77777777777777?J?777?77???????G&@@@@@@@@@@@@@@@@&BG55PPG
+GP5YYYYYYYJJJJJ??????JYJJJJJYYYYJJJY55YJJJ?7777777???7777?????????????????5&@@@@@@@@@@@@@@@@@@@#GPPP
+555Y555YYYYYYYJJJJJJ?JJY555PP55555YYJ????7??777?????????????77????J???????JB@@@@@@@@@@@@@@@@@@@@&&#B
+BGP555YYYYYYYYYYYYYJJJJJJJYJJJ?????????J???????????????JYYJ?77??JYJ????????P&@@@@@@@@@@@@@@@@@@@@@@@
+#&#BP55YYYYYYYYYYYYJYYYYYYYJJJJ?JJJJ?JJJJJJ?????J????YPPY?????YP5J?????????Y#@@@@@@@@@@@@@@@@@@@@@@@
+PGB#&#GP55YYYYYYYYYYJJYYJJJJJJJJJJYJJJJJJYJJ??????J5GPY??77?J5GY????????JJJJP&@@@@@@@@@@@@@@@@@@@@@@
+PPPPG#&&#BGP5YYYYYYYJYYJJJJJJJJYYYYJJJJJJJJ???JJ5PGPJ??7??JY55Y??JJ???????JJY#@@@@@@@@@@@@@@@@@@@@@@
+PPPPPPPB#&&&#BBGP555YYYYYYYYJJYYYYYJJJJJJJJYYPGGPYJ?7??J55YJJJJ?J5YJ???JJJJJJG&@@@@@@@@@@@@@@@@@@@@@
+5P55PP555PGB#&&&&&##BGPPP5555YYY5555YYY5GGBBG5J???JY5GG5Y???YYJJJ5YJJJJJJJJJYG&@@@@@@@@@@@@@@@@@@@@@
+PPP5555YY555Y5PGB#&&&@@&&&&&&&&&&&&####BG5YJ??JYY555P5YJ???JYYJJJ5YJJJJJJJJJYG&@@@@@@@@@@@@@@@@@@@@@
+GGGPP5555555YYYYYY55PPGGGBBBBBGGPP55YYYYJYYYYYYJJYYYJJYJJJJJJJJJYYYYJJJJJJJJJP&@@@@@@@@@@@@@@@@@@@@@
+5PGB#BBGGPP555YYYYYJYYYJJJJJJJJJJYY555PP5YYJJJJY55YJJYYYJJJYYJJYYYYYYJJJJJJYYP&@@@@@@@@@@@@@@@@@@@@@
+5PPBBPGGGBBBGGGPP55555555555PPPPPP55YYYYJJJJJYYY5YJJYYYJJJYYYJYYYYYYYYJYYYYYY5#@@@@@@@FIDI@@@@@@@@@@
+5PGBGP55555PGGGBBB##BGP5P55555YYYYYYYYYYYJJYYY5GG5JYYYYJJJYYYYYYYYYYYYYYYYYYY5#@@@@@@@@@@@@@@@@@@@@@
+PPB#GP5555PPP5555555PGGPYYYYYYYYYYYYYYYYYYYYYYPGPYJJYYYJJY55YYYYYYYYYYYYYYYYY5#@@@@@@@@@@@@@@@@@@@@@
+PGBBPP555PPPP555555Y55PGBGGP5YYYYYYYYYYYYYYYY5PPYYYY55YYYY55YYYYYY55YYYYYYYYY5#@@@@@@@@@@@@@@@@@@@@@
+PB#BPP555PPPPPP5555Y5555PPBBBGG5555YYYYY555YY5PPYYYY55YYY5P5YYYYY55YYYYYY55YY5B@@@@@@@@@@@@@@@@@@@@@
+GB#G5555PPPPPPPPP55555555555PGBBBGPP555Y5YY55PP5YYY555YYY5PP5YYYY55YY55Y555555B@@@@@@@@@@@@@@@@@@@@@
+G#BPPPPPPPPPPPPPPPP555555555YYY5PGGGPP55555PPP5YYYY5P5YY55PP5YYYY5555555555555B&@@@@@@@@@@@@@@@@@@@@
+B#BPPPPPPPPPPPP555P55P555555555555PPPPPP5PPPP5YYYY5PP555PPP55YYY55555555555555B&@@@@@@@@@@@@@@@@@@@@
+    `; /* isi dengan teks yang diinginkan */
+    var speed = -.5; /* Kecepatan atau durasi efek dalam milidetik */
+
+    (function typeWriter() {
+      if (i < txt.length) {
+        document.getElementById("typeWriter").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, 10);
+      }
+    })()
+  </script>
+</body>
+
+</html>
